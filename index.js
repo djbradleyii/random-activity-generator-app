@@ -1,5 +1,4 @@
 function displayYouTubeResults(responseJson){
-    console.log('displayYouTubeResults ran');
     for(let item in responseJson.items){
         $('.youtube-results-list').append(
             `<li class="youtube-result-item"><figure>
@@ -7,17 +6,13 @@ function displayYouTubeResults(responseJson){
             <figcaption>${responseJson.items[item].snippet.title}</figcaption>
             </figure></li>`
         );
-        console.log(responseJson);
     }
 }
 
 function getYouTubeResults(activity){
     activity = encodeURIComponent(activity);
-    console.log(`getYouTubeResults ran`);
-
     let url = `https://www.googleapis.com/youtube/v3/search?part=snippet&q=${activity}&maxResults=15&key=AIzaSyCZcPdtN3I4hj9M2U7FzW_OMZdVTWnNUhw`;
 
-    console.log(url);
     fetch(url)
     .then(response => {
         if(response.ok){
@@ -33,9 +28,6 @@ function getYouTubeResults(activity){
 }
 
 function displayActivity(responseJson){
-    //this function will display the activity to the DOM
-    console.log(`displayActivity ran`);
-
     $(`.activity-display`).html(
         `<p class="activity">Activity: ${responseJson.activity}</p>
          <p class="type">Activity Category: ${responseJson.type}</p>
@@ -51,8 +43,6 @@ function displayActivity(responseJson){
 }
 
 function getActivity(activityType){
-    //this function will get the activity
-    console.log(`getActivity ran`);
     let baseUrl = "https://www.boredapi.com/api/activity";
     let url = "";
     
@@ -77,9 +67,6 @@ function getActivity(activityType){
 }
 
 function handleFormSubmission(){
-// this function will handle the form submission
-console.log(`handleFormSubmission ran`);
-
     $('#activity-form').on('submit', function(evt){
         let activityType = $('.activity-type').val();
         $("option:selected").prop("selected", false);
