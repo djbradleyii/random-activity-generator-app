@@ -4,9 +4,25 @@ function displayYouTubeResults(){
 
 }
 
-function getYouTubeResults(){
-    // this function will get youtube results
-    console.log('getYouTubeResults ran');
+function getYouTubeResults(activity){
+    activity = encodeURIComponent(activity);
+    console.log(`getYouTubeResults ran`);
+
+    let url = `https://www.googleapis.com/youtube/v3/search?part=snippet&q=${activity}&maxResults=15&key=AIzaSyCZcPdtN3I4hj9M2U7FzW_OMZdVTWnNUhw`;
+
+    console.log(url);
+    fetch(url)
+    .then(response => {
+        if(response.ok){
+            return response.json();
+        }else{
+            throw new Error(response.statusText);
+        }
+    })
+    .then(responseJson => {
+        displayYouTubeResults(responseJson);
+    })
+    .catch( error => console.log(`Something went wrong. ${error.message}`))
 }
 
 function displayActivity(responseJson){
