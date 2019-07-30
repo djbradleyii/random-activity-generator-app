@@ -1,7 +1,14 @@
-function displayYouTubeResults(){
-    // this function will display youtube results
+function displayYouTubeResults(responseJson){
     console.log('displayYouTubeResults ran');
-
+    for(let item in responseJson.items){
+        $('.youtube-results-list').append(
+            `<li class="youtube-result-item"><figure>
+            <a href="https://www.youtube.com/watch?v=${responseJson.items[item].id.videoId}" target="_blank"><img src="${responseJson.items[item].snippet.thumbnails.high.url}" alt="${responseJson.items[item].snippet.title}" /></a>
+            <figcaption>${responseJson.items[item].snippet.title}</figcaption>
+            </figure></li>`
+        );
+        console.log(responseJson);
+    }
 }
 
 function getYouTubeResults(activity){
@@ -73,12 +80,12 @@ function handleFormSubmission(){
 // this function will handle the form submission
 console.log(`handleFormSubmission ran`);
 
-$('#activity-form').on('submit', function(evt){
-    let activityType = $('.activity-type').val();
-    $("option:selected").prop("selected", false);
-    evt.preventDefault();
-    getActivity(activityType);
-})
+    $('#activity-form').on('submit', function(evt){
+        let activityType = $('.activity-type').val();
+        $("option:selected").prop("selected", false);
+        evt.preventDefault();
+        getActivity(activityType);
+    })
 }
 
 $(handleFormSubmission);
