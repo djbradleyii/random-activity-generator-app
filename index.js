@@ -14,7 +14,7 @@ function displayActivity(){
     console.log(`displayActivity ran`);
 }
 
-function getActivity(activityType){
+function getActivity(){
     //this function will get the activity
     console.log(`getActivity ran`);
 }
@@ -22,6 +22,13 @@ function getActivity(activityType){
 function handleFormSubmission(){
 // this function will handle the form submission
 console.log(`handleFormSubmission ran`);
+
+$('#activity-form').on('submit', function(evt){
+    let activityType = $('.activity-type').val();
+    $("option:selected").prop("selected", false);
+    evt.preventDefault();
+    getActivity(activityType);
+})
 }
 
 $(handleFormSubmission);
