@@ -9,9 +9,22 @@ function getYouTubeResults(){
     console.log('getYouTubeResults ran');
 }
 
-function displayActivity(){
+function displayActivity(responseJson){
     //this function will display the activity to the DOM
     console.log(`displayActivity ran`);
+
+    $(`.activity-display`).html(
+        `<p class="activity">Activity: ${responseJson.activity}</p>
+         <p class="type">Activity Category: ${responseJson.type}</p>
+         <p class="participants">Recommended No. of Participants: ${responseJson.participants}</p>
+         <p class="price">Price Index: ${responseJson.price}</p>`
+    );
+    
+    if(responseJson.link){
+        $(`.activity-display`).append(`<p>${responseJson.link}</p>`);
+    }
+
+    getYouTubeResults(responseJson.activity);
 }
 
 function getActivity(activityType){
