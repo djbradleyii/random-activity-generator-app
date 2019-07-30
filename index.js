@@ -42,16 +42,23 @@ function displayActivity(responseJson){
     getYouTubeResults(responseJson.activity);
 }
 
-function getActivity(activityType){
+function getActivity(activityType,accessIndex){
     let baseUrl = "https://www.boredapi.com/api/activity";
     let url = "";
-    
-    if(activityType !== 'null'){
-        url = baseUrl + '?type=' + activityType;
-    }else{
+
+    console.log(`activity=${activityType} & accessIndex=${accessIndex}`);
+
+    if(activityType !== 'null' && accessIndex){
+        url = baseUrl + '?type=' + activityType + '&minaccessibility=0&maxaccessibility=0.5';
+    }else if(activityType !== 'null' && !accessIndex){
+        url = baseUrl + '?type=' + activityType
+    }else if(activityType === 'null' && accessIndex){
+        url = baseUrl + '?minaccessibility=0&maxaccessibility=0.5';
+    }else if(activityType === 'null' && !accessIndex){
         url = baseUrl;
     }
 
+    console.log(url);
     fetch(url)
     .then(response => {
         if(response.ok){
@@ -69,10 +76,12 @@ function getActivity(activityType){
 function handleFormSubmission(){
     $('#activity-form').on('submit', function(evt){
         let activityType = $('.activity-type').val();
+        let accessIndex = $('#access-index').prop('checked');
         $('option:selected').prop('selected', false);
+        $('#access-index').prop('checked', false);
         $('.youtube-results-list').empty();
         evt.preventDefault();
-        getActivity(activityType);
+        getActivity(activityType,accessIndex);
     })
 }
 
