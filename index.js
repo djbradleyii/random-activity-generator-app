@@ -14,9 +14,30 @@ function displayActivity(){
     console.log(`displayActivity ran`);
 }
 
-function getActivity(){
+function getActivity(activityType){
     //this function will get the activity
     console.log(`getActivity ran`);
+    let baseUrl = "https://www.boredapi.com/api/activity";
+    let url = "";
+    
+    if(activityType !== 'null'){
+        url = baseUrl + '?type=' + activityType;
+    }else{
+        url = baseUrl;
+    }
+
+    fetch(url)
+    .then(response => {
+        if(response.ok){
+            return response.json();
+        }else{
+            throw new Error(response.statusText);
+        }
+    })
+    .then(responseJson => {
+        displayActivity(responseJson);
+    })
+    .catch(error => console.log(error.message))
 }
 
 function handleFormSubmission(){
