@@ -36,7 +36,7 @@ function displayActivity(responseJson){
     );
     
     if(responseJson.link){
-        $(`.activity-display`).append(`<p>${responseJson.link}</p>`);
+        $('.activity-display').append(`<p>${responseJson.link}</p>`);
     }
 
     getYouTubeResults(responseJson.activity);
@@ -69,7 +69,8 @@ function getActivity(activityType){
 function handleFormSubmission(){
     $('#activity-form').on('submit', function(evt){
         let activityType = $('.activity-type').val();
-        $("option:selected").prop("selected", false);
+        $('option:selected').prop('selected', false);
+        $('.youtube-results-list').empty();
         evt.preventDefault();
         getActivity(activityType);
     })
