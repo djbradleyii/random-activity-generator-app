@@ -3,3 +3,81 @@
     margin: 0;
     padding: 0;
 }
+
+body{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+h1{
+    font-size: 22px;
+    text-align: center;
+    margin: 15px 0;
+}
+
+form{
+    width: 80%;
+    margin: 0 auto;
+}
+
+label{
+    text-align: center;
+}
+
+div{
+    text-align: center;
+}
+
+ul{
+    width: 75%;
+    margin: 0 auto;
+}
+
+li p, li h2{
+    text-align: center;
+}
+
+li h2{
+    font-size: 18px;
+}
+
+li{
+    list-style: none;
+    margin: 5px 0;
+    border: 2px solid black;
+    padding: 5px;
+}
+
+figure{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+img, figcaption{
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+}
+
+figcaption{
+    font-size: 14px;
+}
+
+button{
+    display: block;
+    width: 150px;
+    height: 30px;
+    margin: 15px auto;
+}
+
+@media only screen and (min-width: 600px){
+    ul{
+        display:flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    li{
+        flex:25%;
+    }
+}
