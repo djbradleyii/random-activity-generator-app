@@ -9,9 +9,14 @@
     <title>Random Activity Generator</title>
 </head>
 <body>
+    <header>
+        <h1>Random Activity Generator</h1>
+    </header>
     <form id="activity-form">
-        <select class="activity-type">
-            <option value="null"></option>
+        <div>
+        <label for="activity-type">Choose a category:</label>
+        <select id="activity-type">
+            <option value="null">All</option>
             <option value="busywork">Busywork</option>
             <option value="charity">Charity</option>
             <option value="cooking">Cooking</option>
@@ -21,15 +26,19 @@
             <option value="relaxation">Relaxation</option>
             <option value="social">Social</option>
         </select>
-        <label for="access-index">Accessible Activities</label>
+        </div>
+        <div>
+        <label for="access-index">Accessible Activities:</label>
         <input id="access-index" type="checkbox" />
+        </div>
         <button id="find-activity">Generate Activity</button>
     </form>
     <main role="main">
         <section class="activity-display">
         </section>
         <section class="youtube-results">
-            <ul class="youtube-results-list"></ul>
+            <ul class="youtube-results-list">
+            </ul>
         </section>
     </main>
     <script src="index.js" type="text/javascript"></script>
