@@ -11,7 +11,7 @@ function displayYouTubeResults(responseJson){
 
 function getYouTubeResults(activity){
     activity = encodeURIComponent(activity);
-    let url = `https://www.googleapis.com/youtube/v3/search?part=snippet&q=${activity}&maxResults=15&key=AIzaSyCZcPdtN3I4hj9M2U7FzW_OMZdVTWnNUhw`;
+    let url = `https://www.googleapis.com/youtube/v3/search?part=snippet&q=${activity}&maxResults=16&key=AIzaSyCZcPdtN3I4hj9M2U7FzW_OMZdVTWnNUhw`;
 
     fetch(url)
     .then(response => {
@@ -29,12 +29,13 @@ function getYouTubeResults(activity){
 
 function displayActivity(responseJson){
     $(`.activity-display`).html(
-        `<p class="activity">Activity: ${responseJson.activity}</p>
-         <p class="type">Activity Category: ${responseJson.type}</p>
-         <p class="participants">Recommended No. of Participants: ${responseJson.participants}</p>
-         <p class="price">Price Index: ${responseJson.price}</p>`
+        `<ul>
+            <li><h2>Activity:</h2><p>${responseJson.activity}</p></li>
+            <li><h2>Category:</h2><p>${responseJson.type}</p></li>
+            <li><h2>No. of Participants:</h2><p>${responseJson.participants}</p></li>
+            <li><h2>Price Index:</h2><p>${responseJson.price}</p></li>
+        </ul>`
     );
-    
     if(responseJson.link){
         $('.activity-display').append(`<p>${responseJson.link}</p>`);
     }
@@ -75,7 +76,7 @@ function getActivity(activityType,accessIndex){
 
 function handleFormSubmission(){
     $('#activity-form').on('submit', function(evt){
-        let activityType = $('.activity-type').val();
+        let activityType = $('#activity-type').val();
         let accessIndex = $('#access-index').prop('checked');
         $('option:selected').prop('selected', false);
         $('#access-index').prop('checked', false);
