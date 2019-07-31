@@ -29,11 +29,13 @@ function getYouTubeResults(activity){
 
 function displayActivity(responseJson){
     $(`.activity-display`).html(
-        `<ul>
-            <li><h2>Activity:</h2><p>${responseJson.activity}</p></li>
-            <li><h2>Category:</h2><p>${responseJson.type}</p></li>
-            <li><h2>No. of Participants:</h2><p>${responseJson.participants}</p></li>
-            <li><h2>Price Index:</h2><p>${responseJson.price}</p></li>
+        `<h2>Results:</h2>
+        <p>Price Index is a measure of the relative price of the activity. The range is from 0.0 to 1.0 with 0 being free.</p>
+        <ul>
+            <li><h3>Activity:</h3><p>${responseJson.activity}</p></li>
+            <li><h3>Category:</h3><p>${responseJson.type}</p></li>
+            <li><h3>No. of Participants:</h3><p>${responseJson.participants}</p></li>
+            <li><h3>Price Index:</h3><p>${responseJson.price}</p></li>
         </ul>`
     );
     if(responseJson.link){
