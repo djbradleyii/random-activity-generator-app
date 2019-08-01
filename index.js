@@ -11,7 +11,7 @@ function displayYouTubeResults(responseJson){
 
 function getYouTubeResults(activity){
     activity = encodeURIComponent(activity);
-    let url = `https://www.googleapis.com/youtube/v3/search?part=snippet&q=${activity}&maxResults=16&key=AIzaSyCZcPdtN3I4hj9M2U7FzW_OMZdVTWnNUhw`;
+    let url = `https://www.googleapis.com/youtube/v3/search?part=snippet&q=${activity}&maxResults=16&key=AIzaSyDZ5YIHJJ6X580UjPPKGLCRYBn5ITuZ-G8`;
 
     fetch(url)
     .then(response => {
@@ -30,7 +30,7 @@ function getYouTubeResults(activity){
 function displayActivity(responseJson){
     $(`.activity-display`).html(
         `<h2>Results:</h2>
-        <p>Price Index is a measure of the relative price of the activity. The range is from 0.0 to 1.0 with 0 being free.</p>
+        <p>Price Index is a measure of the relative price of the activity. The range is from 0.0 to 1.0, with 0 being free.</p>
         <ul>
             <li><h3>Activity:</h3><p>${responseJson.activity}</p></li>
             <li><h3>Category:</h3><p>${responseJson.type}</p></li>
