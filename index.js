@@ -30,7 +30,6 @@ function getYouTubeResults(activity){
 function displayActivity(responseJson){
     $(`.activity-display`).html(
         `<h2>Results:</h2>
-        <p>Price Index is a measure of the relative price of the activity. The range is from 0.0 to 1.0, with 0 being free.</p>
         <ul>
             <li><h3>Activity:</h3><p>${responseJson.activity}</p></li>
             <li><h3>Category:</h3><p>${responseJson.type}</p></li>
@@ -88,4 +87,30 @@ function handleFormSubmission(){
     })
 }
 
+function helpModal(){
+    $('.help').on('click', function(evt){
+        $('#infoModal').removeClass('hide');
+    });
+
+    $('.closeBtn').on('click', function(evt){
+        $('#infoModal').addClass('hide');
+    });
+}
+
+function introModal(){
+    $('.closeBtn').on('click', function(evt){
+        $('#introModal').addClass('hide');
+    });
+}
+
+function modalHandler(){
+    helpModal();
+    setTimeout(function(){
+        $('#introModal').removeClass('hide');
+        introModal();
+    }, 2000);
+    
+}
+
 $(handleFormSubmission);
+$(modalHandler);
