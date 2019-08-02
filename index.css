@@ -8,6 +8,25 @@ body{
     font-family: Arial, Helvetica, sans-serif;
 }
 
+header{
+    position: relative;
+}
+
+.help{
+    display:block;
+    margin: 0 auto 15px;
+    text-decoration: none;
+    text-align: center;
+}
+
+.help:link,.help:visited{
+    color: black;
+}
+
+.help:hover, .help:active{
+    color: green;
+}
+
 h1,h2,h3{
     text-align: center;
 }
@@ -84,6 +103,80 @@ button{
     margin: 15px auto;
 }
 
+.hide{
+    display: none;
+}
+
+.modal{
+    position: fixed;
+    top:0;
+    left:0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,.6);
+    animation-name: modalAnimation;
+    animation-duration: 2s;
+    animation-timing-function: ease;
+}
+
+.modal-wrapper{
+    margin: 5% auto;
+    width: 70%;
+    background-color: white;
+    box-shadow: 7px 4px 10px 2px rgba(0,0,0,.5);
+}
+
+.modal-title{
+    display: flex;
+    justify-content: flex-end;
+    background-color: blue;
+    color: white;
+}
+
+.modal-title p{
+    align-self: center;
+    text-align: center;
+    width:100%;
+}
+
+.modal-content{
+    padding: 20px;
+    text-align: left;
+}
+
+.modal-content dt{
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.modal-content dt::after{
+    content: ":";
+}
+
+.modal-content dd{
+    margin-top: 5px;
+    margin-bottom: 15px;
+    padding-bottom: 5px;
+    border-bottom: 1px dashed lightgray; 
+}
+
+.closeBtn{
+    display: block;
+    text-align: right;
+    padding: 5px;
+    cursor: pointer;
+    font-size: 25px;
+}
+
+.closeBtn:hover{
+    color: red;
+}
+
+@keyframes modalAnimation{
+    from{opacity: 0;}
+    to{opacity: 1;}
+}
+
 @media only screen and (min-width: 600px){
     ul{
         display:flex;
@@ -93,5 +186,12 @@ button{
 
     li{
         flex:25%;
+    }
+
+    .help{
+        position: absolute;
+        top:0;
+        right:10%;
+        text-decoration: none;
     }
 }
