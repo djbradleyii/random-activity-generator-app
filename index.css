@@ -4,33 +4,74 @@
     padding: 0;
 }
 
+html{
+    background-image: linear-gradient(#405957, #365f5c);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    height: 100%;
+}
+
 body{
     font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Roboto', sans-serif;
+    border-radius: 5px;
+    width: 80%;
+    margin: 15px auto;
+    margin-bottom: 50px;
+    background-color: white;
+    box-shadow: 2px 3px 40px rgba(0,0,0,.7);
+}
+
+header{
+    height: 50px;
+    line-height: 50px;
+    background-color: #208C6E;
+}
+
+.category{
+    margin-bottom: 15px;
+}
+
+.helpIcon{
+    opacity: 0;
+    position: fixed;
+    width: 35px;
+    height: 35px;
+    z-index: 1;
+    bottom:15px;
+    right:5px;
+    box-shadow: 2px 3px 4px rgba(0,0,0,.7);
+    border-radius: 50%;
+    background-color: white;
 }
 
 h1,h2,h3{
     text-align: center;
-}
-
-h1,h2{
-    margin: 15px 0;
+    font-family: 'Oswald', sans-serif;
 }
 
 h1{
-    font-size: 22px;
+    font-size: 19px;
+    color: #fff;
+    text-shadow: 3px 2px 4px rgba(0, 0, 0, 1);
 }
 
 h2{
-    font-size: 20px;
+    margin: 15px 0;
+    font-size: 17px;
 }
 
 h3{
-    font-size: 16px;
+    font-size: 15px;
+    color: white;
 }
 
 form{
-    width: 80%;
-    margin: 0 auto;
+    padding: 4px;
+    padding-top: 15px;
+    width: 100%;
 }
 
 label{
@@ -50,15 +91,37 @@ p{
     text-align: center;
 }
 
-li h2{
+.youtube-results-list li h2, .activity-display li h2{
     font-size: 18px;
 }
 
-li{
+.youtube-results-list li, .activity-display li{
     list-style: none;
-    margin: 5px 0;
-    border: 2px solid black;
+    margin: 5px 2px;
     padding: 5px;
+}
+
+.youtube-results{
+    padding-bottom: 15px;
+}
+
+.activity-display li{
+    /*border: 2px solid #000;*/
+    background-image: linear-gradient(#208C6E, #208C6E);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    box-shadow: 2px 3px 2px #000;
+    border-radius: 5px;
+}
+
+.youtube-result-item{
+    background-image: linear-gradient(#208C6E, #208C6E);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    box-shadow: 2px 3px 2px #000;
+    border-radius: 5px;
 }
 
 figure{
@@ -71,10 +134,14 @@ img, figcaption{
     display: block;
     margin: 0 auto;
     width: 100%;
+    height: auto;
 }
 
 figcaption{
+    padding: 5px;
     font-size: 14px;
+    color: white;
+    font-weight: bold;
 }
 
 button{
@@ -82,16 +149,216 @@ button{
     width: 150px;
     height: 30px;
     margin: 15px auto;
+    border-width: 1px;
+    border-radius: 10px;
+    border-color: rgba(186, 205, 216, 1);
+    background-color: none;
+    background-image: linear-gradient(to bottom, #208C6E, #3c736e);
+    box-shadow: 1px 1px 1px rgba(0,0,0,.2);
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+button:hover{
+    background-color: #208C6E;
+    background-image: none;
+    color: white;
+    text-shadow: 3px 2px 4px rgba(0, 0, 0, 1);
+}
+
+.hide{
+    display: none;
+}
+
+/* Modal Base Styles*/
+.introModal, .helpModal{
+    position: fixed;
+    top:0;
+    left:0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,.6);
+    font-size: 14px;
+    overflow: scroll;
+    animation-name: modalAnimation;
+    animation-duration: 1s;
+    animation-timing-function: linear;
+}
+
+.introModal-wrapper, .helpModal-wrapper{
+    margin: 0 auto;
+    width: 90%;
+    background-color: white;
+    box-shadow: 7px 4px 10px 2px rgba(0,0,0,.5);
+    padding: 10px;
+}
+
+.introModal-title, .helpModal-title{
+    display: flex;
+    justify-content: flex-end;
+    background-color: #208C6E;
+    color: rgba(255, 255, 255, 1);
+    border-radius: 3px;
+    box-shadow: 3px 3px 3px rgba(0,0,0,.8);
+}
+
+.introModal-title h2, .helpModal-title h2{
+    align-self: center;
+    text-align: center;
+    width:100%;
+    font-size: 25px;
+    text-shadow: 4px 4px 6px rgba(0,0,0,.9);
+}
+
+.introCloseBtn, .helpCloseBtn{
+    position: absolute;
+    display: block;
+    text-align: right;
+    padding: 5px;
+    cursor: pointer;
+    font-size: 25px;
+}
+
+.introCloseBtn:hover, .helpCloseBtn:hover{
+    color: rgba(81, 99, 114, 1);
+    text-shadow: 1px 1px 1px rgba(0,0,0,.9);
+}
+
+/* End Modal Base Styles  */
+    /* introModal styles*/
+    
+    .introModal-content{
+        padding: 10px;
+        text-align: left;
+    }
+    
+    .introModal p{
+        text-align: left;
+        margin-bottom: 15px;
+    }
+    
+    .step{
+        list-style: none;
+        margin-bottom: 10px;
+        line-height: 1.4;
+        text-align: left;
+    }
+
+    .notes{
+        list-style-position: inside;
+    }
+
+    .notes li{
+        margin-bottom: 10px;
+        line-height: 1.4;
+        text-align: left;
+    }
+
+    .introModal p{
+        line-height: 1.4;
+    }
+
+    .hide{
+        display: none;
+    }
+    
+    /*end of introModal styles*/
+
+    /*helpModal styles*/
+    
+    .helpModal-content{
+        padding: 20px;
+        text-align: left;
+    }
+    
+    .helpModal-content dt{
+        font-weight: bold;
+        font-size: 18px;
+    }
+    
+    .helpModal-content dt::after{
+        content: ":";
+    }
+    
+    .helpModal-content dd{
+        margin-top: 5px;
+        margin-bottom: 15px;
+        padding-bottom: 5px;
+        border-bottom: 1px dashed lightgray; 
+    }
+    /*end of helpModal styles*/
+
+@keyframes modalAnimation{
+    from{opacity: 0;}
+    to{opacity: 1;}
 }
 
 @media only screen and (min-width: 600px){
+    body{
+        width: 75%;
+    }
+
     ul{
         display:flex;
         flex-direction: row;
         flex-wrap: wrap;
     }
 
-    li{
-        flex:25%;
+    h1{
+        font-size: 32px;
+    }
+    
+    h2{
+        margin: 15px 0;
+        font-size: 24px;
+    }
+    
+    h3{
+        font-size: 20px;
+    }
+
+    .youtube-results-list li, .activity-display li{
+        flex:35%;
+    }
+    
+    /* introModal styles*/
+    
+    .introModal-wrapper, .helpModal-wrapper{
+        /*width: 70%;*/
+        padding: 20px;
+        max-width: 600px;
+    }
+    
+    .introModal-title h2{
+        font-size: 32px;
+    }
+    
+    .hide{
+        display: none;
+    }
+    /*end of introModal styles*/
+    
+    /*helpModal styles*/
+        
+    .helpModal-title h2{
+        font-size: 32px;
+    }    /*end of helpModal styles*/
+
+    .helpIcon{
+        width: 40px;
+        height: 40px;
+        right: 15px;
+    }
+
+    button{
+        width: 300px;
+        height: 50px;
+    }
+}
+
+@media only screen and (min-width: 1000px){
+    .youtube-results-list li{
+        flex:23%;
     }
 }
