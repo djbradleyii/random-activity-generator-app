@@ -100,23 +100,6 @@ function handleFormSubmission(){
     })
 }
 
-function trackResizing(){
-    $(window).on('resize', function(){
-        if(window.innerHeight < 250){
-            $('.helpIcon').fadeOut();
-        }
-        if(window.innerHeight >= 250){
-            $('.helpIcon').fadeIn();
-        }
-    });
-}
-
-function showHelpIcon(){
-    $('.helpIcon').fadeTo(1000,1);
-    displayHelp();
-    trackResizing();
-}
-
 function closeHelpModal(){
     $('.help').on('click', '.helpCloseBtn, .close', function(){    
         $('.helpModal').fadeTo(1000,0, function(){
@@ -128,7 +111,7 @@ function closeHelpModal(){
 
 function displayHelp(){
     $('.helpIcon').on('click',function(){
-        $('.helpIcon').fadeOut();
+        hideHelpIcon();
         $('.help').html(
             `<div id="infoModal" class="helpModal">
             <div class="helpModal-wrapper">
@@ -163,13 +146,21 @@ function displayHelp(){
                         <li>Try not to discard the activity just because you might not have the exact number of participants.</li>
                         <li>Lastly, the price indicator is there to give an indication of whether or not you might need money for the activity. This is a best guess and not an exact science.</li>
                     </ol>
-                    <p>Do remember that each time you press the button, all of the previous information goes away never to return again. Just kidding, but it will go away until it is randomly generated again. Have fun!!</p>
+                    <p>Do remember that each time you press the button, all of the previous information goes away never to return again. Just kidding, but it will go away until it is randomly generated again. Have fun!</p>
                     <button type="button" class="close">Close</button>
                 </div>
             </div>     
         </div>`);
         closeHelpModal();
     });
+}
+
+function hideHelpIcon(){
+    $('.helpIcon').fadeOut();
+}
+
+function showHelpIcon(){
+    $('.helpIcon').fadeIn();
 }
 
 function closeIntroModal(){
@@ -190,7 +181,7 @@ function displayIntro(){
                     <button class="introCloseBtn">&times;</botton>
                 </div>
                 <div class="introModal-content">
-                    <p>Hi there! Are you bored out of your mind? I was created to help you with just that. Wait, what's that? You're not bored? Well I am here to give you a random activity to do alone or with friends, regardless.</p>
+                    <p>Hi there! Are you bored out of your mind? I was created to help you with just that. Wait, what's that? You're not bored? Well, I am here to give you a random activity to do alone or with friends, regardless.</p>
                     <ol>
                         <li class="step"><span>Step 1:</span> Choose a category or go full random. You have 8 categories from which to choose (choose wisely or don't). You can also select 'Accessible' activities, which is my attempt at returning activities that can be done by almost anyone, but I am not perfect (blame the person who programmed me), but I do my best.</li> 
                         <li class="step"><span>Step 2:</span> Now the fun part. Click the 'Generate Activity' button and BOOM! A random activity at your fingertips. I'm awesome, aren't I? I also sent the activity to YouTube, since I am "connected", and well look at that! They sent back some videos related to the activity I provided. How awesome are they? If you find that the videos aren't helpful, let me know and I will launch a formal complaint with them.</li>  
