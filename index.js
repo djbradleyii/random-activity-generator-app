@@ -1,8 +1,14 @@
 function displayYouTubeResults(responseJson){
     for(let item in responseJson.items){
+        let videoLink = "";
+        if(responseJson.items[item].id.videoId){
+            videoLink = `https://www.youtube.com/watch?v=${responseJson.items[item].id.videoId}`;
+        }else{
+            videoLink = `https://www.youtube.com/channel/${responseJson.items[item].snippet.channelId}`
+        }
         $('.youtube-results-list').append(
             `<li class="youtube-result-item"><figure>
-            <a href="https://www.youtube.com/watch?v=${responseJson.items[item].id.videoId}" target="_blank"><img src="${responseJson.items[item].snippet.thumbnails.high.url}" alt="${responseJson.items[item].snippet.title}" /></a>
+            <a href="${videoLink}" target="_blank"><img src="${responseJson.items[item].snippet.thumbnails.high.url}" alt="${responseJson.items[item].snippet.title}" /></a>
             <figcaption>${responseJson.items[item].snippet.title}</figcaption>
             </figure></li>`
         );
@@ -36,7 +42,7 @@ function displayActivity(responseJson){
             <li><h3>Price Index:</h3><p>${responseJson.price}</p></li>
         </ul>`
     );
-    
+
     getYouTubeResults(responseJson.activity);
 }
 
