@@ -101,13 +101,50 @@ function showHelpIcon(){
     trackResizing();
 }
 
-function helpModal(){
-    $('.help').on('click', function(evt){
-        $('#infoModal').removeClass('hide');
+function closeHelpModal(){
+    $('.help').on('click', '.helpCloseBtn, .close', function(){    
+        $('.helpModal').fadeTo(1000,0, function(){
+            $('.help').empty();
+            showHelpIcon();
+        })
     });
+}
 
-    $('.closeBtn').on('click', function(evt){
-        $('#infoModal').addClass('hide');
+function displayHelp(){
+    $('.helpIcon').on('click',function(){
+        $('.helpIcon').fadeOut();
+        $('.help').html(
+            `<div id="infoModal" class="helpModal">
+            <div class="helpModal-wrapper">
+                <div class="helpModal-title">
+                    <h2>Help</h2>
+                    <span class="helpCloseBtn">&times;</span>
+                </div>
+                <div class="helpModal-content">
+                    <dl>
+                        <dt>Activity</dt>
+                        <dd>Randomly generated activity.</dd>
+                        <dt>Accessibility</dt>
+                        <dd>Accessible Activities are based on a factor describing how possible an event is to do, with zero being the most accessible. This is set to a range of 0.0 - 2.0.
+                        </dd>
+                        <dt>Category</dt>
+                        <dd>You can choose a specific category or go truly random. Category list: Education, Recreational, Social, Diy, Charity, Cooking, Relaxation, Music or Busywork.
+                        </dd>
+                        <dt>Participants</dt>
+                        <dd>Recommended Number of participants for the activity.
+                        </dd>
+                        <dt>Price</dt>
+                        <dd>Price is based on a factor describing the potential cost of the event, with zero being free. The range is from 0.0 - 1.0. This is not an exact science, but aims to be an indicator of the price obligiation for each activity.
+                        </dd>
+                        <dt>YouTube Videos</dt>
+                        <dd>As each activity is generated, YouTube is searched for related videos based on the activity generated. The results of the YouTube search will be listed below the activity information. Clicking on the thumbnail will send you to YouTube to view the video.
+                        </dd>
+                    </dl>
+                    <button type="button" class="close">Close</button>
+                </div>
+            </div>     
+        </div>`);
+        closeHelpModal();
     });
 }
 
