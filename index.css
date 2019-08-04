@@ -63,10 +63,6 @@ h2{
     font-size: 20px;
 }
 
-h3{
-    color: white;
-    letter-spacing: 1px;
-}
 
 form{
     padding: 4px;
@@ -88,13 +84,22 @@ ul{
 }
 
 p{
-    padding-top: 5px;
-    text-align: center;
     font-family: 'Roboto', sans-serif;
 }
 
-.youtube-results-list li h2, .activity-display li h2{
+.activity-display li h3{
+    color: white;
+    font-weight: normal;
     font-size: 18px;
+}
+
+.activity-display p{
+    padding-top: 5px;
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
 }
 
 .youtube-results-list li, .activity-display li{
