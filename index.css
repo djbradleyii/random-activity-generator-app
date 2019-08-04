@@ -76,6 +76,13 @@ form{
     width: 100%;
 }
 
+.error-msg{
+    text-align: center;
+    color: red;
+    font-weight: bold;
+    font-size: 18px;
+}
+
 label{
     text-align: center;
 }
