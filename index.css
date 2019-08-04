@@ -41,7 +41,7 @@ header{
 }
 
 .helpIcon{
-    opacity: 0;
+    display: none;
     position: fixed;
     width: 35px;
     height: 35px;
