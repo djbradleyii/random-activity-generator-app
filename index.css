@@ -25,13 +25,13 @@ body{
 }
 
 header{
-    height: 50px;
-    line-height: 50px;
+    height: 60px;
+    line-height: 55px;
     background-color: #208C6E;
 }
 
 .category{
-    margin-bottom: 15px;
+    margin-bottom: 12px;
 }
 
 .helpIcon{
@@ -64,7 +64,6 @@ h2{
 }
 
 h3{
-    font-size: 20px;
     color: white;
     letter-spacing: 1px;
 }
@@ -89,7 +88,9 @@ ul{
 }
 
 p{
+    padding-top: 5px;
     text-align: center;
+    font-family: 'Roboto', sans-serif;
 }
 
 .youtube-results-list li h2, .activity-display li h2{
@@ -112,7 +113,7 @@ p{
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
-    box-shadow: 2px 3px 2px #000;
+    box-shadow: 2px 3px 5px #000;
     border-radius: 5px;
 }
 
@@ -121,7 +122,7 @@ p{
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
-    box-shadow: 2px 3px 2px #000;
+    box-shadow: 3px 5px 6px #000;
     border-radius: 5px;
 }
 
@@ -166,7 +167,11 @@ button:hover{
     background-color: #208C6E;
     background-image: none;
     color: white;
+}
+
+button:active{
     text-shadow: none;
+    box-shadow: none;
 }
 
 .hide{
@@ -228,68 +233,68 @@ button:hover{
 }
 
 /* End Modal Base Styles  */
-    /* introModal styles*/
-    
-    .introModal-content{
-        padding: 10px;
-        text-align: left;
-    }
-    
-    .introModal p{
-        text-align: left;
-        margin-bottom: 15px;
-    }
-    
-    .step{
-        list-style: none;
-        margin-bottom: 10px;
-        line-height: 1.4;
-        text-align: left;
-    }
+/* introModal styles*/
 
-    .notes{
-        list-style-position: inside;
-    }
+.introModal-content{
+    padding: 10px;
+    text-align: left;
+}
 
-    .notes li{
-        margin-bottom: 10px;
-        line-height: 1.4;
-        text-align: left;
-    }
+.introModal p{
+    text-align: left;
+    margin-bottom: 15px;
+}
 
-    .introModal p{
-        line-height: 1.4;
-    }
+.step{
+    list-style: none;
+    margin-bottom: 10px;
+    line-height: 1.4;
+    text-align: left;
+}
 
-    .hide{
-        display: none;
-    }
-    
-    /*end of introModal styles*/
+.notes{
+    list-style-position: inside;
+}
 
-    /*helpModal styles*/
-    
-    .helpModal-content{
-        padding: 20px;
-        text-align: left;
-    }
-    
-    .helpModal-content dt{
-        font-weight: bold;
-        font-size: 18px;
-    }
-    
-    .helpModal-content dt::after{
-        content: ":";
-    }
-    
-    .helpModal-content dd{
-        margin-top: 5px;
-        margin-bottom: 15px;
-        padding-bottom: 5px;
-        border-bottom: 1px dashed lightgray; 
-    }
-    /*end of helpModal styles*/
+.notes li{
+    margin-bottom: 10px;
+    line-height: 1.4;
+    text-align: left;
+}
+
+.introModal p{
+    line-height: 1.4;
+}
+
+.hide{
+    display: none;
+}
+
+/*end of introModal styles*/
+
+/*helpModal styles*/
+
+.helpModal-content{
+    padding: 20px;
+    text-align: left;
+}
+
+.helpModal-content dt{
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.helpModal-content dt::after{
+    content: ":";
+}
+
+.helpModal-content dd{
+    margin-top: 5px;
+    margin-bottom: 15px;
+    padding-bottom: 5px;
+    border-bottom: 1px dashed lightgray; 
+}
+/*end of helpModal styles*/
 
 @keyframes modalAnimation{
     from{opacity: 0;}
@@ -315,10 +320,6 @@ button:hover{
         margin: 15px 0;
         font-size: 24px;
     }
-    
-    h3{
-        font-size: 25px;
-    }
 
     .youtube-results-list li, .activity-display li{
         flex:35%;
@@ -327,7 +328,6 @@ button:hover{
     /* introModal styles*/
     
     .introModal-wrapper, .helpModal-wrapper{
-        /*width: 70%;*/
         padding: 20px;
         max-width: 600px;
     }
@@ -345,7 +345,9 @@ button:hover{
         
     .helpModal-title h2{
         font-size: 32px;
-    }    /*end of helpModal styles*/
+    }    
+    
+    /*end of helpModal styles*/
 
     .helpIcon{
         width: 40px;
@@ -363,5 +365,9 @@ button:hover{
 @media only screen and (min-width: 1000px){
     .youtube-results-list li{
         flex:23%;
+    }
+    
+    h3{
+        font-size: 22px;
     }
 }
