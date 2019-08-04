@@ -36,10 +36,7 @@ function displayActivity(responseJson){
             <li><h3>Price Index:</h3><p>${responseJson.price}</p></li>
         </ul>`
     );
-    if(responseJson.link){
-        $('.activity-display').append(`<p>${responseJson.link}</p>`);
-    }
-
+    
     getYouTubeResults(responseJson.activity);
 }
 
