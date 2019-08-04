@@ -35,6 +35,8 @@ function getYouTubeResults(activity){
 
 function displayActivity(responseJson){
     let priceIndicator = "";
+    let activityType = responseJson.type;
+
     if(responseJson.price === 0) {
         priceIndicator = "Possibly Free";
     }else if(responseJson.price > 0 && responseJson.price < 0.5){
@@ -46,7 +48,7 @@ function displayActivity(responseJson){
     $(`.activity-display`).html(
         `<ul>
             <li><h3>Activity:</h3><p>${responseJson.activity}</p></li>
-            <li><h3>Category:</h3><p>${responseJson.type}</p></li>
+            <li><h3>Category:</h3><p class="category">${activityType.toLowerCase()}</p></li>
             <li><h3>No. of Participants:</h3><p>${responseJson.participants}</p></li>
             <li><h3>Price Indicator:</h3><p>${priceIndicator}</p></li>
         </ul>`
