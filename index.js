@@ -48,8 +48,6 @@ function getActivity(activityType,accessIndex){
     let baseUrl = "https://www.boredapi.com/api/activity";
     let url = "";
 
-    console.log(`activity=${activityType} & accessIndex=${accessIndex}`);
-
     if(activityType !== 'null' && accessIndex){
         url = baseUrl + '?type=' + activityType + '&minaccessibility=0&maxaccessibility=0.5';
     }else if(activityType !== 'null' && !accessIndex){
@@ -60,7 +58,6 @@ function getActivity(activityType,accessIndex){
         url = baseUrl;
     }
 
-    console.log(url);
     fetch(url)
     .then(response => {
         if(response.ok){
