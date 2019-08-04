@@ -156,7 +156,7 @@ function displayHelp(){
                     <ol class="notes">
                         <li>As I was intended to provide a random activity, I made it so that you cannot alter the number of participants or change the price requirements. Maybe I will change that in the future.</li>
                         <li>If the activity suggests more participants than you have, feel free to get creative. For example: "Go to an escape room" suggests that four participants be involved. If you are alone or have fewer than four participants, you can take this opportunity to catch up with friends or team-build with your coworkers.</li>
-                        <li> Don't count it out just because you might not have the exact number of participants.</li>
+                        <li>Try not to discard the activity just because you might not have the exact number of participants.</li>
                         <li>Lastly, the price indicator is there to give an indication of whether or not you might need money for the activity. This is a best guess and not an exact science.</li>
                     </ol>
                     <p>Do remember that each time you press the button, all of the previous information goes away never to return again. Just kidding, but it will go away until it is randomly generated again. Have fun!!</p>
