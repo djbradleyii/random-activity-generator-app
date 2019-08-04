@@ -29,8 +29,7 @@ function getYouTubeResults(activity){
 
 function displayActivity(responseJson){
     $(`.activity-display`).html(
-        `<h2>Results:</h2>
-        <ul>
+        `<ul>
             <li><h3>Activity:</h3><p>${responseJson.activity}</p></li>
             <li><h3>Category:</h3><p>${responseJson.type}</p></li>
             <li><h3>No. of Participants:</h3><p>${responseJson.participants}</p></li>
