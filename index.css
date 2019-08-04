@@ -30,8 +30,12 @@ header{
     background-color: #208C6E;
 }
 
-.category{
+.category-section{
     margin-bottom: 12px;
+}
+
+.category, figcaption{
+    text-transform: capitalize;
 }
 
 .helpIcon{
