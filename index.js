@@ -130,7 +130,7 @@ function displayHelp(){
             <div class="helpModal-wrapper">
                 <div class="helpModal-title">
                     <h2>Help</h2>
-                    <span class="helpCloseBtn">&times;</span>
+                    <button class="helpCloseBtn">&times;</botton>
                 </div>
                 <div class="helpModal-content">
                     <dl>
@@ -183,14 +183,14 @@ function displayIntro(){
             <div class="introModal-wrapper">
                 <div class="introModal-title">
                     <h2>Welcome</h2>
-                    <span class="introCloseBtn">&times;</span>
+                    <button class="introCloseBtn">&times;</botton>
                 </div>
                 <div class="introModal-content">
-                    <p>Hi there! Are you bored out of your mind? I was created to help you with just that. Wait, what's that? You're not bored? Well I am here to give you a random activity to do alone or with friends.</p>
+                    <p>Hi there! Are you bored out of your mind? I was created to help you with just that. Wait, what's that? You're not bored? Well I am here to give you a random activity to do alone or with friends, regardless.</p>
                     <ol>
-                        <li class="step">Step 1: Choose a category or go full random. You have 8 categories from which to choose (choose wisely or don't). You can also select 'Accessible' activities, which is my attempt at returning activities that can be done by almost anyone, but I am not perfect (blame the person who programmed me), but I do my best.</li> 
-                        <li class="step">Step 2: Now the fun part. Click the 'Generate Activity' button and BOOM! A random activity at your fingertips. I'm awesome, aren't I? I also sent the activity to YouTube, since I am "connected", and well look at that! They sent back some videos related to the activity I provided. How awesome are they? If you find that the videos aren't helpful, let me know and I will launch a formal complaint with them.</li>  
-                        <li class="step">Step 3: Now, the most important step: GO OUT AND ENJOY THE ACTIVITY! I am just a bunch of 1s and 0s, so I can't join you, but do have all the fun!</li>  
+                        <li class="step"><span>Step 1:</span> Choose a category or go full random. You have 8 categories from which to choose (choose wisely or don't). You can also select 'Accessible' activities, which is my attempt at returning activities that can be done by almost anyone, but I am not perfect (blame the person who programmed me), but I do my best.</li> 
+                        <li class="step"><span>Step 2:</span> Now the fun part. Click the 'Generate Activity' button and BOOM! A random activity at your fingertips. I'm awesome, aren't I? I also sent the activity to YouTube, since I am "connected", and well look at that! They sent back some videos related to the activity I provided. How awesome are they? If you find that the videos aren't helpful, let me know and I will launch a formal complaint with them.</li>  
+                        <li class="step"><span>Step 3:</span> Now, the most important step: GO OUT AND ENJOY THE ACTIVITY! I am just a bunch of 1s and 0s, so I can't join you, but do have all the fun!</li>  
                     </ol>
                     <button type="button" class="close">Let's Get Started!</button>
                 </div>
