@@ -1,6 +1,7 @@
 function displayYouTubeResults(responseJson){
     for(let item in responseJson.items){
         let videoLink = "";
+        let videoTitle = responseJson.items[item].snippet.title;
         if(responseJson.items[item].id.videoId){
             videoLink = `https://www.youtube.com/watch?v=${responseJson.items[item].id.videoId}`;
         }else{
@@ -9,7 +10,7 @@ function displayYouTubeResults(responseJson){
         $('.youtube-results-list').append(
             `<li class="youtube-result-item"><figure>
             <a href="${videoLink}" target="_blank"><img src="${responseJson.items[item].snippet.thumbnails.high.url}" alt="${responseJson.items[item].snippet.title}" /></a>
-            <figcaption>${responseJson.items[item].snippet.title}</figcaption>
+            <figcaption>${videoTitle.toLowerCase()}</figcaption>
             </figure></li>`
         );
     }
