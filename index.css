@@ -28,6 +28,8 @@ header{
     height: 60px;
     line-height: 55px;
     background-color: #208C6E;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
 }
 
 .category-section{
@@ -205,7 +207,7 @@ figcaption{
 }
 
 .introModal-wrapper, .helpModal-wrapper{
-    margin: 0 auto;
+    margin: 3% auto;
     width: 90%;
     background-color: white;
     box-shadow: 7px 4px 10px 2px rgba(0,0,0,.5);
@@ -322,7 +324,25 @@ figcaption{
     padding-bottom: 5px;
     border-bottom: 1px dashed lightgray; 
 }
+
+.helpModal-content p{
+    margin-bottom: 10px;
+    line-height: 1.4;
+}
+
 /*end of helpModal styles*/
+
+footer{
+    height: 50px;
+    width: 100%;
+    background-color: #208C6E;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    color: white;
+    text-align: center;
+    line-height: 50px;
+    font-family: 'Roboto', sans-serif;
+}
 
 @keyframes modalAnimation{
     from{opacity: 0;}
