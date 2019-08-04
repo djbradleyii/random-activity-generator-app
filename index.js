@@ -76,8 +76,6 @@ function handleFormSubmission(){
     $('#activity-form').on('submit', function(evt){
         let activityType = $('#activity-type').val();
         let accessIndex = $('#access-index').prop('checked');
-        $('option:selected').prop('selected', false);
-        $('#access-index').prop('checked', false);
         $('.youtube-results-list').empty();
         evt.preventDefault();
         getActivity(activityType,accessIndex);
