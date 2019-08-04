@@ -84,6 +84,23 @@ function handleFormSubmission(){
     })
 }
 
+function trackResizing(){
+    $(window).on('resize', function(){
+        if(window.innerHeight < 250){
+            $('.helpIcon').fadeOut();
+        }
+        if(window.innerHeight >= 250){
+            $('.helpIcon').fadeIn();
+        }
+    });
+}
+
+function showHelpIcon(){
+    $('.helpIcon').fadeTo(1000,1);
+    displayHelp();
+    trackResizing();
+}
+
 function helpModal(){
     $('.help').on('click', function(evt){
         $('#infoModal').removeClass('hide');
