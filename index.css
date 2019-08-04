@@ -155,10 +155,10 @@ figcaption{
     font-weight: bold;
 }
 
-button{
+.close, #find-activity{
     display: block;
-    width: 150px;
-    height: 30px;
+    width: 200px;
+    height: 40px;
     margin: 15px auto;
     border-width: 1px;
     border-radius: 10px;
@@ -167,18 +167,20 @@ button{
     background-image: linear-gradient(to bottom, #208C6E, #39856e);
     box-shadow: 3px 3px 3px rgba(0,0,0,.9);
     color: white;
-    font-size: 14px;
+    font-size: 16px;
     font-weight: bold;
+    line-height: 40px;
     text-shadow: 3px 2px 4px rgba(0, 0, 0, 1);
 }
 
-button:hover{
+.close:hover, #find-activity:hover{
     background-color: #208C6E;
     background-image: none;
+    box-shadow: 3px 3px 3px rgba(0,0,0,.7);
     color: white;
 }
 
-button:active{
+.close:active, #find-activity:active{
     text-shadow: none;
     box-shadow: none;
 }
@@ -230,15 +232,28 @@ button:active{
 .introCloseBtn, .helpCloseBtn{
     position: absolute;
     display: block;
-    text-align: right;
-    padding: 5px;
     cursor: pointer;
     font-size: 25px;
+    border-radius: 3px;
+    /**/
+    width: 30px;
+    height: 30px;
+    border-width: 0;
+    background-color: #208C6E;
+    color: white;
+    font-weight: bold;
+    text-shadow: 3px 2px 4px rgba(0, 0, 0, 1);
+    /**/
 }
 
 .introCloseBtn:hover, .helpCloseBtn:hover{
-    color: rgba(81, 99, 114, 1);
+    color: #405957;
     text-shadow: 1px 1px 1px rgba(0,0,0,.9);
+}
+
+.introCloseBtn:active, .helpCloseBtn:active{
+    color: white;
+    text-shadow: none;
 }
 
 /* End Modal Base Styles  */
@@ -251,7 +266,7 @@ button:active{
 
 .introModal p{
     text-align: left;
-    margin-bottom: 15px;
+    margin: 15px 0;
 }
 
 .step{
@@ -259,6 +274,10 @@ button:active{
     margin-bottom: 10px;
     line-height: 1.4;
     text-align: left;
+}
+
+.step span{
+    font-weight: bold;
 }
 
 .notes{
