@@ -110,6 +110,7 @@ function closeHelpModal(){
 }
 
 function displayHelp(){
+    showHelpIcon();
     $('.helpIcon').on('click',function(){
         hideHelpIcon();
         $('.help').html(
@@ -167,7 +168,7 @@ function closeIntroModal(){
     $('.intro').on('click', '.introCloseBtn, .close', function(){
         $('.introModal').fadeTo(1000,0, function(){
             $('.intro').empty();
-            showHelpIcon();
+            displayHelp();
         })
     });
 }
