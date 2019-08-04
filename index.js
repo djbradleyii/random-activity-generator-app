@@ -31,7 +31,9 @@ function getYouTubeResults(activity){
     .then(responseJson => {
         displayYouTubeResults(responseJson);
     })
-    .catch( error => console.log(`Something went wrong. ${error.message}`))
+    .catch( error => {
+        $('.error-msg').text(`Something went wrong: ${error.message}`);
+    })
 }
 
 function displayActivity(responseJson){
@@ -83,7 +85,9 @@ function getActivity(activityType,accessIndex){
     .then(responseJson => {
         displayActivity(responseJson);
     })
-    .catch(error => console.log(error.message))
+    .catch(error => {
+        $('.error-msg').text(`Something went wrong: ${error.message}`);
+    })
 }
 
 function handleFormSubmission(){
