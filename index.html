@@ -5,16 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Oswald|Roboto&display=swap" rel="stylesheet">
     <link href="index.css" type="text/css" rel="stylesheet" />
     <title>Random Activity Generator</title>
 </head>
 <body>
     <header>
         <h1>Random Activity Generator</h1>
-        <a href="#" class="help">Help</a>
+        <img src="icons8-help-96.png" class="helpIcon" alt="help" title="Help"></a>
     </header>
     <form id="activity-form">
-        <div>
+        <div class="category">
         <label for="activity-type">Choose a category:</label>
         <select id="activity-type">
             <option value="null">All</option>
@@ -35,56 +36,16 @@
         <button id="find-activity">Generate Activity</button>
     </form>
     <main role="main">
+        <section class="intro"></section>
         <section class="activity-display">
         </section>
         <section class="youtube-results">
             <ul class="youtube-results-list">
             </ul>
         </section>
-        <div id="infoModal" class="modal hide">
-            <div class="modal-wrapper">
-                <div class="modal-title">
-                    <p>Help</p>
-                    <span class="closeBtn">&times;</span>
-                </div>
-                <div class="modal-content">
-                    <dl>
-                        <dt>Activity</dt>
-                        <dd>Randomly generated activity.</dd>
-                        <dt>Accessibility</dt>
-                        <dd>Accessible Activities are based on a factor describing how possible an event is to do, with zero being the most accessible. This is set to a range of 0.0 - 2.0.
-                        </dd>
-                        <dt>Category</dt>
-                        <dd>You can choose a specific category or go truly random. Category list: Education, Recreational, Social, Diy, Charity, Cooking, Relaxation, Music or Busywork.
-                        </dd>
-                        <dt>Participants</dt>
-                        <dd>Recommended Number of participants for the activity.
-                        </dd>
-                        <dt>Price</dt>
-                        <dd>Price is based on a factor describing the potential cost of the event, with zero being free. The range is from 0.0 - 1.0. This is not an exact science, but aims to be an indicator of the price obligiation for each activity.
-                        </dd>
-                        <dt>YouTube Videos</dt>
-                        <dd>As each activity is generated, YouTube is searched for related videos based on the activity generated. The results of the YouTube search will be listed below the activity information. Clicking on the thumbnail will send you to YouTube to view the video.
-                        </dd>
-                    </dl>
-                </div>
-            </div>     
-        </div>
-        <div id="introModal" class="modal hide">
-                <div class="modal-wrapper">
-                    <div class="modal-title">
-                        <p>Welcome</p>
-                        <span class="closeBtn">&times;</span>
-                    </div>
-                    <div class="modal-content">
-                        <p>If you are bored and looking for something random to do or just feel like a random activity, you've come to the right place.</p>
-                        <p></p>
-                        <p>Just click on the "Generate Activity" button to get started.</p>
-                        <p>Please note: A new set of results are generated with each click of the button.</p>
-                    </div>
-                </div>     
-            </div>
+        <section class="help"></section>
     </main>
+    <footer role="contentinfo"></footer>
     <script src="index.js" type="text/javascript"></script>
 </body>
 </html>
