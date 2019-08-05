@@ -30,7 +30,7 @@ header{
 }
 
 .category-section{
-    margin-bottom: 12px;
+   margin-bottom: 12px;
 }
 
 .category, figcaption{
@@ -43,8 +43,8 @@ header{
     width: 35px;
     height: 35px;
     z-index: 1;
-    bottom:15px;
-    right:5px;
+    bottom: 15px;
+    right: 5px;
     box-shadow: 2px 3px 4px rgba(0,0,0,.7);
     border-radius: 50%;
     background-color: white;
@@ -117,7 +117,7 @@ p{
 
 .youtube-results-list li, .activity-display li{
     list-style: none;
-    margin: 5px 2px;
+    margin: 0 2px 5px;
     padding: 5px;
 }
 
@@ -302,10 +302,6 @@ figcaption{
     line-height: 1.4;
 }
 
-.hide{
-    display: none;
-}
-
 /*end of introModal styles*/
 
 /*helpModal styles*/
@@ -390,10 +386,6 @@ footer{
     
     .introModal-title h2{
         font-size: 32px;
-    }
-    
-    .hide{
-        display: none;
     }
     /*end of introModal styles*/
     
