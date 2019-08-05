@@ -2,6 +2,8 @@ function displayYouTubeResults(responseJson){
     for(let item in responseJson.items){
         let videoLink = "";
         let videoTitle = responseJson.items[item].snippet.title;
+       
+        //handles videoId returning undefined
         if(responseJson.items[item].id.videoId){
             videoLink = `https://www.youtube.com/watch?v=${responseJson.items[item].id.videoId}`;
         }else{
