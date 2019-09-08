@@ -19,7 +19,7 @@ Help Screen:
 * CSS
 * JavaScript
 * jQuery
-
+* RESTful APIs
 
 ### Features:
 - Category Selection
