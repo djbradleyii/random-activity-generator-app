@@ -9,10 +9,10 @@ Welcome Screen:
 ![Welcome Screen](screenshots/random-activity-gen-app-welcome-800.png)
 
 Generated Activity:
-![Welcome Screen](screenshots/random-activity-gen-app-800.png)
+![Generated Activity](screenshots/random-activity-gen-app-800.png)
 
 Help Screen:
-![Welcome Screen](screenshots/random-activity-gen-app-help-800.png)
+![Help Screen](screenshots/random-activity-gen-app-help-800.png)
 
 ## Built with
 * HTML
