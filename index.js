@@ -20,7 +20,7 @@ function displayYouTubeResults(responseJson){
 
 function getYouTubeResults(activity){
     activity = encodeURIComponent(activity);
-    let url = `https://www.googleapis.com/youtube/v3/search?part=snippet&q=${activity}&maxResults=16&key=AIzaSyAVY71upjLCjaUoxtlMFZBcNyF6x0Gzl48`;
+    let url = `https://www.googleapis.com/youtube/v3/search?part=snippet&q=${activity}&maxResults=16&key=AIzaSyAzDG3Codsm7Idl3GG58-UfMVgTaXf3UO0`;
 
     fetch(url)
     .then(response => {
