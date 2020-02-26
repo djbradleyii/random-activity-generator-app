@@ -20,7 +20,7 @@ function displayYouTubeResults(responseJson){
 
 function getYouTubeResults(activity){
     activity = encodeURIComponent(activity);
-    let url = `https://www.googleapis.com/youtube/v3/search?part=snippet&q=${activity}&maxResults=16&key=AIzaSyAzDG3Codsm7Idl3GG58-UfMVgTaXf3UO0`;
+    let url = `https://www.googleapis.com/youtube/v3/search?part=snippet&q=${activity}&maxResults=4&key=AIzaSyAzDG3Codsm7Idl3GG58-UfMVgTaXf3UO0`;
 
     fetch(url)
     .then(response => {
@@ -190,6 +190,7 @@ function displayIntro(){
                         <li class="step"><span>Step 2:</span> Now the fun part. Click the 'Generate Activity' button and BOOM! A random activity at your fingertips. I'm awesome, aren't I? I also sent the activity to YouTube, since I am "connected", and well look at that! They sent back some videos related to the activity I provided. How awesome are they? If you find that the videos aren't helpful, let me know and I will launch a formal complaint with them.</li>  
                         <li class="step"><span>Step 3:</span> Now, the most important step: GO OUT AND ENJOY THE ACTIVITY! I am just a bunch of 1s and 0s, so I can't join you, but do have all the fun!</li>  
                     </ol>
+                    <p>Please note: Due to quota restrictions the number of results has been limited to 4 per submission. I am currently working on a solution.</p>
                     <button type="button" class="close">Let's Get Started!</button>
                 </div>
             </div>     
