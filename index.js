@@ -93,7 +93,7 @@ function getActivity(activityType,accessIndex){
 }
 
 function handleFormSubmission(){
-    $('.error-msg').text(``);
+    $('.error-msg').text(` `);
     $('#activity-form').on('submit', function(evt){
         let activityType = $('#activity-type').val();
         let accessIndex = $('#access-index').prop('checked');
