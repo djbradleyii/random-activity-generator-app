@@ -20,8 +20,7 @@ function displayYouTubeResults(responseJson){
 
 function getYouTubeResults(activity){
     activity = encodeURIComponent(activity);
-    let url = `https://www.googleapis.com/youtube/v3/search?part=snippet&q=${activity}&maxResults=4&key=AIzaSyAzDG3Codsm7Idl3GG58-UfMVgTaXf3UO0`;
-
+    let url = `https://still-sea-44057.herokuapp.com/activity?q=${activity}`
     fetch(url)
     .then(response => {
         if(response.ok){
