@@ -32,6 +32,7 @@ function getYouTubeResults(activity){
     })
     .then(responseJson => {
         displayYouTubeResults(responseJson);
+        $('.error-msg').text(` `);
     })
     .catch( error => {
         $('.error-msg').text(`Something went wrong: ${error.message}`);
@@ -86,6 +87,7 @@ function getActivity(activityType,accessIndex){
     })
     .then(responseJson => {
         displayActivity(responseJson);
+        $('.error-msg').text(`Loading YouTube Videos...`);
     })
     .catch(error => {
         $('.error-msg').text(`Something went wrong: ${error.message}`);
@@ -94,7 +96,7 @@ function getActivity(activityType,accessIndex){
 
 function handleFormSubmission(){
     $('#activity-form').on('submit', function(evt){
-        $('.error-msg').text(` `);
+        $('.error-msg').text(`Loading Activity & YouTube Videos...`);
         let activityType = $('#activity-type').val();
         let accessIndex = $('#access-index').prop('checked');
         $('.youtube-results-list').empty();
