@@ -76,11 +76,15 @@ form{
     width: 100%;
 }
 
-.error-msg{
+.error-msg, .load-msg{
     text-align: center;
     color: red;
     font-weight: bold;
     font-size: 18px;
+}
+
+.load-msg{
+    color:#208C6E;
 }
 
 label{
