@@ -9,6 +9,7 @@ function displayYouTubeResults(responseJson){
         }else{
             videoLink = `https://www.youtube.com/channel/${responseJson.items[item].snippet.channelId}`
         }
+
         $('.youtube-results-list').append(
             `<li class="youtube-result-item"><figure>
             <a href="${videoLink}" target="_blank"><img src="${responseJson.items[item].snippet.thumbnails.high.url}" alt="${responseJson.items[item].snippet.title}" /></a>
@@ -92,6 +93,7 @@ function getActivity(activityType,accessIndex){
 }
 
 function handleFormSubmission(){
+    $('.error-msg').text(``);
     $('#activity-form').on('submit', function(evt){
         let activityType = $('#activity-type').val();
         let accessIndex = $('#access-index').prop('checked');
