@@ -85,6 +85,7 @@ form{
 
 .load-msg{
     color:#208C6E;
+    text-shadow: 3px 2px 4px rgba(0, 0, 0, 1);
 }
 
 label{
