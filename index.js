@@ -93,8 +93,8 @@ function getActivity(activityType,accessIndex){
 }
 
 function handleFormSubmission(){
-    $('.error-msg').text(` `);
     $('#activity-form').on('submit', function(evt){
+        $('.error-msg').text(` `);
         let activityType = $('#activity-type').val();
         let accessIndex = $('#access-index').prop('checked');
         $('.youtube-results-list').empty();
