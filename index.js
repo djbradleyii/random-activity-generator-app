@@ -1,128 +1,136 @@
-function displayYouTubeResults(responseJson){
-    for(let item in responseJson.items){
-        let videoLink = "";
-        let videoTitle = responseJson.items[item].snippet.title;
-       
-        //handles videoId returning undefined
-        if(responseJson.items[item].id.videoId){
-            videoLink = `https://www.youtube.com/watch?v=${responseJson.items[item].id.videoId}`;
-        }else{
-            videoLink = `https://www.youtube.com/channel/${responseJson.items[item].snippet.channelId}`
-        }
+function displayYouTubeResults(responseJson) {
+  for (let item in responseJson.items) {
+    let videoLink = "";
+    let videoTitle = responseJson.items[item].snippet.title;
 
-        $('.youtube-results-list').append(
-            `<li class="youtube-result-item"><figure>
-            <a href="${videoLink}" target="_blank"><img src="${responseJson.items[item].snippet.thumbnails.high.url}" alt="${responseJson.items[item].snippet.title}" /></a>
+    //handles videoId returning undefined
+    if (responseJson.items[item].id.videoId) {
+      videoLink = `https://www.youtube.com/watch?v=${responseJson.items[item].id.videoId}`;
+    } else {
+      videoLink = `https://www.youtube.com/channel/${responseJson.items[item].snippet.channelId}`;
+    }
+
+    $(".youtube-results-list").append(
+      `<li class="youtube-result-item"><figure>
+            <a href="${videoLink}" target="_blank"><img src="${
+        responseJson.items[item].snippet.thumbnails.high.url
+      }" alt="${responseJson.items[item].snippet.title}" /></a>
             <figcaption>${videoTitle.toLowerCase()}</figcaption>
             </figure></li>`
-        );
-    }
-}
-
-function getYouTubeResults(activity){
-    activity = encodeURIComponent(activity);
-    let url = `https://still-sea-44057.herokuapp.com/activity?q=${activity}`
-    fetch(url)
-    .then(response => {
-        if(response.ok){
-            return response.json();
-        }else{
-            throw new Error(response.statusText);
-        }
-    })
-    .then(responseJson => {
-        displayYouTubeResults(responseJson);
-        $('.error-msg').text(` `);
-        $('.load-msg').text(` `);
-    })
-    .catch( error => {
-        $('.error-msg').text(`Something went wrong: ${error.message}`);
-    })
-}
-
-function displayActivity(responseJson){
-    let priceIndicator = "";
-    let activityType = responseJson.type;
-
-    if(responseJson.price === 0) {
-        priceIndicator = "Possibly Free";
-    }else if(responseJson.price > 0 && responseJson.price < 0.5){
-        priceIndicator = "Potential Charge";
-    }else if(responseJson.price > .5){
-        priceIndicator = "Go to ATM";
-    }
-
-    $(`.activity-display`).html(
-        `<ul>
-            <li><h3>Activity:</h3><p>${responseJson.activity}</p></li>
-            <li><h3>Category:</h3><p class="category">${activityType.toLowerCase()}</p></li>
-            <li><h3>No. of Participants:</h3><p>${responseJson.participants}</p></li>
-            <li><h3>Price Indicator:</h3><p>${priceIndicator}</p></li>
-        </ul>`
     );
-
-    getYouTubeResults(responseJson.activity);
+  }
 }
 
-function getActivity(activityType,accessIndex){
-    let baseUrl = "https://www.boredapi.com/api/activity";
-    let url = "";
-
-    if(activityType !== 'null' && accessIndex){
-        url = baseUrl + '?type=' + activityType + '&minaccessibility=0&maxaccessibility=0.5';
-    }else if(activityType !== 'null' && !accessIndex){
-        url = baseUrl + '?type=' + activityType
-    }else if(activityType === 'null' && accessIndex){
-        url = baseUrl + '?minaccessibility=0&maxaccessibility=0.5';
-    }else if(activityType === 'null' && !accessIndex){
-        url = baseUrl;
-    }
-
-    fetch(url)
-    .then(response => {
-        if(response.ok){
-            return response.json();
-        }else{
-            throw new Error(response.statusText);
-        }
+function getYouTubeResults(activity) {
+  activity = encodeURIComponent(activity);
+  let url = `https://random-activity-app-proxy.onrender.com/activity?q=${activity}`;
+  fetch(url)
+    .then((response) => {
+      if (response.ok) {
+        return response.json();
+      } else {
+        throw new Error(response.statusText);
+      }
     })
-    .then(responseJson => {
-        displayActivity(responseJson);
-        $('.error-msg').text(` `);
-        $('.load-msg').text(`Loading YouTube Videos...`);
+    .then((responseJson) => {
+      displayYouTubeResults(responseJson);
+      $(".error-msg").text(` `);
+      $(".load-msg").text(` `);
     })
-    .catch(error => {
-        $('.error-msg').text(`Something went wrong: ${error.message}`);
-    })
-}
-
-function handleFormSubmission(){
-    $('#activity-form').on('submit', function(evt){
-        $('.error-msg').text(` `);
-        $('.load-msg').text(`Loading Activity & YouTube Videos...`);
-        let activityType = $('#activity-type').val();
-        let accessIndex = $('#access-index').prop('checked');
-        $('.youtube-results-list').empty();
-        evt.preventDefault();
-        getActivity(activityType,accessIndex);
-    })
-}
-
-function closeHelpModal(){
-    $('.help').on('click', '.helpCloseBtn, .close', function(){    
-        $('.helpModal').fadeTo(1000,0, function(){
-            $('.help').empty();
-            showHelpIcon();
-        })
+    .catch((error) => {
+      $(".error-msg").text(`Something went wrong: ${error.message}`);
     });
 }
 
-function displayHelp(){
-    showHelpIcon();
-    $('.helpIcon').on('click',function(){
-        hideHelpIcon();
-        $('.help').html(
-            `<div id="infoModal" class="helpModal">
+function displayActivity(responseJson) {
+  let priceIndicator = "";
+  let activityType = responseJson.type;
+
+  if (responseJson.price === 0) {
+    priceIndicator = "Possibly Free";
+  } else if (responseJson.price > 0 && responseJson.price < 0.5) {
+    priceIndicator = "Potential Charge";
+  } else if (responseJson.price > 0.5) {
+    priceIndicator = "Go to ATM";
+  }
+
+  $(`.activity-display`).html(
+    `<ul>
+            <li><h3>Activity:</h3><p>${responseJson.activity}</p></li>
+            <li><h3>Category:</h3><p class="category">${activityType.toLowerCase()}</p></li>
+            <li><h3>No. of Participants:</h3><p>${
+              responseJson.participants
+            }</p></li>
+            <li><h3>Price Indicator:</h3><p>${priceIndicator}</p></li>
+        </ul>`
+  );
+
+  getYouTubeResults(responseJson.activity);
+}
+
+function getActivity(activityType, accessIndex) {
+  let baseUrl = "https://www.boredapi.com/api/activity";
+  let url = "";
+
+  if (activityType !== "null" && accessIndex) {
+    url =
+      baseUrl +
+      "?type=" +
+      activityType +
+      "&minaccessibility=0&maxaccessibility=0.5";
+  } else if (activityType !== "null" && !accessIndex) {
+    url = baseUrl + "?type=" + activityType;
+  } else if (activityType === "null" && accessIndex) {
+    url = baseUrl + "?minaccessibility=0&maxaccessibility=0.5";
+  } else if (activityType === "null" && !accessIndex) {
+    url = baseUrl;
+  }
+
+  fetch(url)
+    .then((response) => {
+      if (response.ok) {
+        return response.json();
+      } else {
+        throw new Error(response.statusText);
+      }
+    })
+    .then((responseJson) => {
+      displayActivity(responseJson);
+      $(".error-msg").text(` `);
+      $(".load-msg").text(`Loading YouTube Videos...`);
+    })
+    .catch((error) => {
+      $(".error-msg").text(`Something went wrong: ${error.message}`);
+    });
+}
+
+function handleFormSubmission() {
+  $("#activity-form").on("submit", function (evt) {
+    $(".error-msg").text(` `);
+    $(".load-msg").text(`Loading Activity & YouTube Videos...`);
+    let activityType = $("#activity-type").val();
+    let accessIndex = $("#access-index").prop("checked");
+    $(".youtube-results-list").empty();
+    evt.preventDefault();
+    getActivity(activityType, accessIndex);
+  });
+}
+
+function closeHelpModal() {
+  $(".help").on("click", ".helpCloseBtn, .close", function () {
+    $(".helpModal").fadeTo(1000, 0, function () {
+      $(".help").empty();
+      showHelpIcon();
+    });
+  });
+}
+
+function displayHelp() {
+  showHelpIcon();
+  $(".helpIcon").on("click", function () {
+    hideHelpIcon();
+    $(".help").html(
+      `<div id="infoModal" class="helpModal">
             <div class="helpModal-wrapper">
                 <div class="helpModal-title">
                     <h2>Help</h2>
@@ -159,30 +167,31 @@ function displayHelp(){
                     <button type="button" class="close">Close</button>
                 </div>
             </div>     
-        </div>`);
-        closeHelpModal();
+        </div>`
+    );
+    closeHelpModal();
+  });
+}
+
+function hideHelpIcon() {
+  $(".helpIcon").fadeOut();
+}
+
+function showHelpIcon() {
+  $(".helpIcon").fadeIn();
+}
+
+function closeIntroModal() {
+  $(".intro").on("click", ".introCloseBtn, .close", function () {
+    $(".introModal").fadeTo(1000, 0, function () {
+      $(".intro").empty();
+      displayHelp();
     });
+  });
 }
 
-function hideHelpIcon(){
-    $('.helpIcon').fadeOut();
-}
-
-function showHelpIcon(){
-    $('.helpIcon').fadeIn();
-}
-
-function closeIntroModal(){
-    $('.intro').on('click', '.introCloseBtn, .close', function(){
-        $('.introModal').fadeTo(1000,0, function(){
-            $('.intro').empty();
-            displayHelp();
-        })
-    });
-}
-
-function displayIntro(){
-    $('.intro').html(`
+function displayIntro() {
+  $(".intro").html(`
         <div id="welcomModal" class="introModal">
             <div class="introModal-wrapper">
                 <div class="introModal-title">
@@ -202,11 +211,11 @@ function displayIntro(){
             </div>     
         </div>
     `);
-    closeIntroModal();
+  closeIntroModal();
 }
 
-function modalHandler(){
-    displayIntro();
+function modalHandler() {
+  displayIntro();
 }
 
 $(handleFormSubmission);
