@@ -1,6 +1,11 @@
 // v1.0.1 Add error handler function to provide
 // more useful error messages
 
+$(document).ready(function () {
+  $(".error-msg").hide();
+  $(".load-msg").hide();
+});
+
 function displayYouTubeResults(responseJson) {
   for (let item in responseJson.items) {
     let videoLink = "";
