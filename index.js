@@ -37,11 +37,11 @@ function getYouTubeResults(activity) {
     })
     .then((responseJson) => {
       displayYouTubeResults(responseJson);
-      $(".error-msg").text(` `);
-      $(".load-msg").text(` `);
+      $(".error-msg").hide();
+      $(".load-msg").hide();
     })
     .catch((error) => {
-      $(".error-msg").text(`Something went wrong: ${error.message}`);
+      $(".error-msg").show().text(`Something went wrong: ${error.message}`);
     });
 }
 
@@ -99,18 +99,18 @@ function getActivity(activityType, accessIndex) {
     })
     .then((responseJson) => {
       displayActivity(responseJson);
-      $(".error-msg").text(` `);
-      $(".load-msg").text(`Loading YouTube Videos...`);
+      $(".error-msg").hide();
+      $(".load-msg").show().text(`Loading YouTube Videos...`);
     })
     .catch((error) => {
-      $(".error-msg").text(`Something went wrong: ${error.message}`);
+      $(".error-msg").show().text(`Something went wrong: ${error.message}`);
     });
 }
 
 function handleFormSubmission() {
   $("#activity-form").on("submit", function (evt) {
-    $(".error-msg").text(` `);
-    $(".load-msg").text(`Loading Activity & YouTube Videos...`);
+    $(".error-msg").hide();
+    $(".load-msg").show().text(`Loading Activity & YouTube Videos...`);
     let activityType = $("#activity-type").val();
     let accessIndex = $("#access-index").prop("checked");
     $(".youtube-results-list").empty();
