@@ -1,3 +1,6 @@
+// v1.0.1 Add error handler function to provide
+// more useful error messages
+
 function displayYouTubeResults(responseJson) {
   for (let item in responseJson.items) {
     let videoLink = "";
