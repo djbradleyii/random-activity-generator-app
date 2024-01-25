@@ -34,7 +34,7 @@ function getYouTubeResults(activity) {
   let url = `https://random-activity-app-proxy.onrender.com/activity?q=${activity}`;
   fetch(url, {
     headers: {
-      Referer: "https://djbradleyii.github.io/",
+      Referer: "https://djbradleyii.github.io",
     },
   })
     .then((response) => {
