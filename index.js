@@ -32,7 +32,11 @@ function displayYouTubeResults(responseJson) {
 function getYouTubeResults(activity) {
   activity = encodeURIComponent(activity);
   let url = `https://random-activity-app-proxy.onrender.com/activity?q=${activity}`;
-  fetch(url)
+  fetch(url, {
+    headers: {
+      Referer: "https://djbradleyii.github.io/",
+    },
+  })
     .then((response) => {
       if (response.ok) {
         return response.json();
