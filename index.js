@@ -46,6 +46,8 @@ function getYouTubeResults(activity) {
       $(".load-msg").hide();
     })
     .catch((error) => {
+      console.log("error: ", error);
+      $(".load-msg").hide();
       $(".error-msg").show().text(`Something went wrong: ${error.message}`);
     });
 }
@@ -201,11 +203,11 @@ function closeIntroModal() {
 
 function displayIntro() {
   $(".intro").html(`
-        <div id="welcomModal" class="introModal">
+        <div class="introModal">
             <div class="introModal-wrapper">
                 <div class="introModal-title">
                     <h2>Welcome</h2>
-                    <button class="introCloseBtn">&times;</botton>
+                    <button class="introCloseBtn">&times;</button>
                 </div>
                 <div class="introModal-content">
                     <p>Hi there! Are you bored out of your mind? I was created to help you with just that. Wait, what's that? You're not bored? Well, I am here to give you a random activity to do alone or with friends, regardless.</p>
