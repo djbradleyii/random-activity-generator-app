@@ -108,6 +108,7 @@ function getActivity(activityType, accessIndex) {
       $(".load-msg").show().text(`Loading YouTube Videos...`);
     })
     .catch((error) => {
+      $(".load-msg").hide();
       $(".error-msg").show().text(`Something went wrong: ${error.message}`);
     });
 }
@@ -142,7 +143,7 @@ function displayHelp() {
             <div class="helpModal-wrapper">
                 <div class="helpModal-title">
                     <h2>Help</h2>
-                    <button class="helpCloseBtn">&times;</botton>
+                    <button class="helpCloseBtn">&times;</button>
                 </div>
                 <div class="helpModal-content">
                     <dl>
